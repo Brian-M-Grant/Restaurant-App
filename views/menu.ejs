@@ -1,0 +1,59 @@
+<style>
+    table {
+        width: 100%;
+        font-family: arial, sans-serif;
+        border: 1px solid rgb(219, 218, 218);
+        margin-top: 10px;
+    }
+    
+    th,
+    td {
+        padding: 20px;
+        border: 1px solid rgb(219, 218, 218);
+    }
+</style>
+
+<%- include('./index.ejs') %>
+
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dish</th>
+                    <th>Price</th>
+                    <th>Order</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+             if(data.length){
+                 for (var i = 0; i < data.length; i++){
+                     %>
+                    <tr>
+                        <td>
+                            <%= data[i].id %>
+                        </td>
+                        <td>
+                            <%= data[i].food_name %>
+                        </td>
+                        <td>
+                            <%= data[i].price %>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" onclick="orderSub()">Order</button>
+                        </td>
+                    </tr>
+                    <% 
+                }
+             } else {
+                 %>
+                        <tr>
+                            <td colspan="4">NO FOOD AVAILABLE</td>
+                        </tr>
+                        <%  } %>
+
+
+            </tbody>
+        </table>
+    </body>
